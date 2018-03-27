@@ -1,0 +1,2 @@
+<h1>Can I use Flexbox?</h1>
+<div>Yes! {{support.global}}% of all users have full support. A whopping {{support.partial}}% have at least partial support.</div>
