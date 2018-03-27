@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <title>Can I use Flexbox? | Check the current level of Flexbox support across browsers</title>
-<meta name="description" content="The single fastest answer to the question: what is the level of support for Flexbox across browsers? Powered by caniuse">
-<h1>Can I use Flexbox?</h1>
-<div>YES</div>
-<p>{{support.global}}% of all users have full support.</p>
-<p>A whopping {{support.partial}}% have at least partial support.</div>
-<p>Get detailed stats at <a href="https://caniuse.com/#feat=flexbox" target="_blank">caniuse.com</a>, whose data powers <a href="https://github.com/unwitting/can-i-use-flexbox" target="_blank">this site</a>.</p>
-<p>Made with love by <a href="https://twitter.com/unwttng" target="_blank">@unwttng</a>.</p>
+<meta name="description" content="The single fastest answer to the question: what is the level of support for Flexbox across browsers?">
+<link rel="stylesheet" type="text/css" href="./index.css">
+
+<h1 class="question">Can I use Flexbox?</h1>
+<p class="answer">Yes.</p>
+<p class="support global"><span class="percentage">{{support.global}}%</span> of all users have full support.</p>
+<p class="support partial">A whopping <span class="percentage">{{support.partial}}%</span> have at least partial support.</div>
+<p class="links">Get detailed stats at <a href="https://caniuse.com/#feat=flexbox" target="_blank">caniuse.com</a>, whose data powers <a href="https://github.com/unwitting/can-i-use-flexbox" target="_blank">this site</a>.</p>
+<p class="unwttng">Made with love by <a href="https://twitter.com/unwttng" target="_blank">@unwttng</a>.</p>

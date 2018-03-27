@@ -1,6 +1,8 @@
+const autoprefixer = require("autoprefixer");
 const fs = require("fs-extra");
 const mustache = require("mustache");
 const path = require("path");
+const postcss = require("postcss");
 const request = require("request-promise-native");
 
 const BUILD_DIR = path.join(".", "build");
@@ -12,15 +14,19 @@ const CANIUSE_JSON_CDN =
 async function build() {
   await ensureBuildDir();
   await templateHtml();
+  await buildCSS();
 }
 
-async function templateHtml() {
-  const templateData = await getTemplateData();
-  const indexHtml = (await fs.readFile(
-    path.join(SRC_DIR, "index.mst")
+async function buildCSS() {
+  const css = (await fs.readFile(
+    path.join(SRC_DIR, "css", "index.css")
   )).toString();
-  const rendered = mustache.render(indexHtml, templateData);
-  await fs.writeFile(path.join(BUILD_DIR, "index.html"), rendered);
+  const processed = (await postcss([
+    autoprefixer({
+      browsers: ["cover 99.5%"]
+    })
+  ]).process(css)).css;
+  await fs.writeFile(path.join(BUILD_DIR, "index.css"), processed);
 }
 
 async function ensureBuildDir() {
@@ -43,6 +49,15 @@ async function getTemplateData() {
   return {
     support: await getSupportPercentages()
   };
+}
+
+async function templateHtml() {
+  const templateData = await getTemplateData();
+  const indexHtml = (await fs.readFile(
+    path.join(SRC_DIR, "index.mst")
+  )).toString();
+  const rendered = mustache.render(indexHtml, templateData);
+  await fs.writeFile(path.join(BUILD_DIR, "index.html"), rendered);
 }
 
 build().catch(err => {

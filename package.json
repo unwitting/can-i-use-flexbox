@@ -5,8 +5,10 @@
     "build": "node build.js"
   },
   "devDependencies": {
+    "autoprefixer": "^8.2.0",
     "fs-extra": "^5.0.0",
     "mustache": "^2.3.0",
+    "postcss": "^6.0.21",
     "request": "^2.85.0",
     "request-promise-native": "^1.0.5"
   }
