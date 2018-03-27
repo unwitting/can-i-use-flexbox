@@ -1,0 +1,12 @@
+{
+  "name": "can-i-use-flexbox",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "fs-extra": "^5.0.0",
+    "request": "^2.85.0",
+    "request-promise-native": "^1.0.5"
+  }
+}

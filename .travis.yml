@@ -1,4 +1,5 @@
-script: ./build.sh
+language: node_js
+script: npm run build
 deploy:
   provider: pages
   github-token: $GITHUB_TOKEN
