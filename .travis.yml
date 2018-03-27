@@ -1,0 +1,11 @@
+script: build.sh
+deploy:
+  provider: pages
+  github-token: $GITHUB_TOKEN
+  local-dir: build
+  target-branch: gh-pages
+  keep-history: tru
+  skip-cleanup: true
+  verbose: true
+  on:
+    branch: master
