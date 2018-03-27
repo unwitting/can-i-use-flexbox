@@ -10,3 +10,5 @@ deploy:
   verbose: true
   on:
     branch: master
+notifications:
+  slack: $SLACK_NOTIFICATIONS_CODE
