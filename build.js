@@ -22,18 +22,29 @@ async function build() {
 }
 
 async function buildCSS() {
-  const css = (await fs.readFile(
-    path.join(SRC_DIR, "css", "index.css")
-  )).toString();
+  const inFile = path.join(SRC_DIR, "css", "index.css");
+  const outFile = path.join(BUILD_DIR, "index.css");
+  const css = (await fs.readFile(inFile)).toString();
   const processed = (await postcss([
     autoprefixer({
       browsers: ["cover 99.5%"]
     })
-  ]).process(css)).css;
-  await fs.writeFile(path.join(BUILD_DIR, "index.css"), processed);
+  ]).process(css, {
+    from: inFile,
+    to: outFile,
+    map: {
+      inline: true,
+      annotation: true
+    }
+  })).css;
+  await fs.writeFile(outFile, processed);
 }
 
 async function copyAssets() {
+  fs.copyFile(
+    path.join(ASSETS_DIR, "favicon.ico"),
+    path.join(BUILD_DIR, "favicon.ico")
+  );
   fs.copyFile(
     path.join(ASSETS_DIR, "yes.png"),
     path.join(BUILD_DIR, "yes.png")
