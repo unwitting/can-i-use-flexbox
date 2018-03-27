@@ -1,4 +1,4 @@
-script: pwd && ./build.sh
+script: ./build.sh
 deploy:
   provider: pages
   github-token: $GITHUB_TOKEN
