@@ -20,6 +20,11 @@ body {
   justify-content: center;
 }
 
+p {
+  font-weight: 200;
+  text-align: center;
+}
+
 .question {
   font-weight: 200;
   font-size: 1.4rem;
@@ -28,18 +33,6 @@ body {
 .answer {
   font-weight: 400;
   font-size: 1.6rem;
-}
-
-.support {
-  font-weight: 200;
-}
-
-.links {
-  font-weight: 200;
-}
-
-.unwttng {
-  font-weight: 200;
 }
 
 .percentage {
