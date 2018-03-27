@@ -5,8 +5,11 @@ const path = require("path");
 const postcss = require("postcss");
 const request = require("request-promise-native");
 
+const ASSETS_DIR = path.join(".", "assets");
 const BUILD_DIR = path.join(".", "build");
 const SRC_DIR = path.join(".", "src");
+
+const OG_URL_BASE = "https://unwitting.github.io/can-i-use-flexbox";
 
 const CANIUSE_JSON_CDN =
   "https://cdn.rawgit.com/Fyrd/caniuse/2f6c1df9/features-json/flexbox.json";
@@ -15,6 +18,7 @@ async function build() {
   await ensureBuildDir();
   await templateHtml();
   await buildCSS();
+  await copyAssets();
 }
 
 async function buildCSS() {
@@ -27,6 +31,13 @@ async function buildCSS() {
     })
   ]).process(css)).css;
   await fs.writeFile(path.join(BUILD_DIR, "index.css"), processed);
+}
+
+async function copyAssets() {
+  fs.copyFile(
+    path.join(ASSETS_DIR, "yes.png"),
+    path.join(BUILD_DIR, "yes.png")
+  );
 }
 
 async function ensureBuildDir() {
@@ -47,6 +58,7 @@ async function getSupportPercentages() {
 
 async function getTemplateData() {
   return {
+    ogUrlBase: OG_URL_BASE,
     support: await getSupportPercentages()
   };
 }

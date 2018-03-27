@@ -1,6 +1,13 @@
 <!DOCTYPE html>
-<title>Can I use Flexbox? | Check the current level of Flexbox support across browsers</title>
-<meta name="description" content="The single fastest answer to the question: what is the level of support for Flexbox across browsers?">
+<title>Can I use Flexbox?</title>
+<meta name="description" content="The fastest way to check the current level of Flexbox support across browsers.">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:creator" content="@unwttng" />
+<meta name="og:url" content="{{{ogUrlBase}}}" />
+<meta name="og:title" content="Can I use Flexbox?" />
+<meta name="og:description" content="The fastest way to check the current level of Flexbox support across browsers." />
+<meta name="og:image" content="{{{ogUrlBase}}}/yes.png" />
+
 <link rel="stylesheet" type="text/css" href="./index.css">
 
 <h1 class="question">Can I use Flexbox?</h1>
